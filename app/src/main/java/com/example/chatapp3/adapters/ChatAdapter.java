@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,7 +20,7 @@ public class ChatAdapter  extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     private final Bitmap receiverProfileImage;
     private final String senderId;
     public static final int VIEW_TYPE_SENT =1;
-    public static final int VIEW_TYPE_RECEIVED =1;
+    public static final int VIEW_TYPE_RECEIVED =0;
 
     public ChatAdapter(List<ChatMessage> chatMessage, Bitmap receiverProfileImage, String senderId) {
         this.chatMessage = chatMessage;
@@ -52,7 +53,7 @@ public class ChatAdapter  extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         if(getItemViewType(position)== VIEW_TYPE_SENT){
-            ((SentMessageViewHolder) holder).setDat(chatMessage.get(position));
+            ((SentMessageViewHolder) holder).setData(chatMessage.get(position));
         }else {
             ((ReceivedMessegeViewHolder)holder).setData(chatMessage.get(position),receiverProfileImage);
         }
@@ -63,7 +64,7 @@ public class ChatAdapter  extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
         return chatMessage.size();
     }
 
-    public int getViewType(int position){
+    public int getItemViewType(int position){
         if(chatMessage.get(position).senderId.equals(senderId)){
             return VIEW_TYPE_SENT;
         }else {
@@ -78,10 +79,11 @@ public class ChatAdapter  extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
             binding = itemContainerSentMessageBinding;
         }
 
-        void setDat(ChatMessage chatMessage){
+        void setData(ChatMessage chatMessage){
            binding.textMessegeR.setText(chatMessage.messege);
            binding.texDateTimeR.setText(chatMessage.dateTime);
         }
+
     }
     static class ReceivedMessegeViewHolder extends RecyclerView.ViewHolder{
         private final ItemContainerReceivedMessageBinding binding;
