@@ -13,6 +13,7 @@
         android:layout_width="443dp"
         android:layout_height="655dp"
         android:background="@drawable/background_content_top"
+        app:layout_constraintBottom_toTopOf="@+id/inputMessage"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="-16dp" />
 
