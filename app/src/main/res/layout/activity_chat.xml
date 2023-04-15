@@ -10,9 +10,8 @@
 
     <View
         android:id="@+id/viewBackground"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginBottom="@dimen/_16sdp"
+        android:layout_width="443dp"
+        android:layout_height="655dp"
         android:background="@drawable/background_content_top"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="-16dp" />
