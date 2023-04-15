@@ -116,6 +116,7 @@ public class ChatActivity extends AppCompatActivity {
      private void setListener(){
         binding.imageBack.setOnClickListener(v -> onBackPressed());
         binding.sendMesseger.setOnClickListener(v -> sendMessege());
+
      }
      private String getReadableDateTime(Date date){
         return new SimpleDateFormat("mm dd, yyyy - hh:mm: a", Locale.getDefault()).format(date);

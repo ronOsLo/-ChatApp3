@@ -15,11 +15,6 @@ import com.example.chatapp3.models.ChatMessage;
 import java.util.List;
 
 public class ChatAdapter  extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
-
-
-
-
-
     private List<ChatMessage> chatMessage;
     private final Bitmap receiverProfileImage;
     private final String senderId;
@@ -57,7 +52,7 @@ public class ChatAdapter  extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         if(getItemViewType(position)== VIEW_TYPE_SENT){
-            ((SentMessageViewHolder) holder).setData(chatMessage.get(position));
+            ((SentMessageViewHolder) holder).setDat(chatMessage.get(position));
         }else {
             ((ReceivedMessegeViewHolder)holder).setData(chatMessage.get(position),receiverProfileImage);
         }
@@ -83,9 +78,9 @@ public class ChatAdapter  extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
             binding = itemContainerSentMessageBinding;
         }
 
-        void setData(ChatMessage chatMessage){
-           binding.textMessege.setText(chatMessage.messege);
-           binding.texDateTime.setText(chatMessage.dateTime);
+        void setDat(ChatMessage chatMessage){
+           binding.textMessegeR.setText(chatMessage.messege);
+           binding.texDateTimeR.setText(chatMessage.dateTime);
         }
     }
     static class ReceivedMessegeViewHolder extends RecyclerView.ViewHolder{
@@ -97,7 +92,7 @@ public class ChatAdapter  extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     }
     void setData(ChatMessage chatMessage, Bitmap receiverProfileImage){
         binding.textMessege.setText(chatMessage.messege);
-        binding.textMessege.setText(chatMessage.dateTime);
+        binding.texDateTime.setText(chatMessage.dateTime);
         binding.imageProfile.setImageBitmap(receiverProfileImage);
     }
     }
