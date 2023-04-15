@@ -10,8 +10,8 @@
 
     <View
         android:id="@+id/viewBackground"
-        android:layout_width="443dp"
-        android:layout_height="655dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:background="@drawable/background_content_top"
         app:layout_constraintBottom_toTopOf="@+id/inputMessage"
         app:layout_constraintTop_toTopOf="parent"
